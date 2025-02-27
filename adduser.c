@@ -49,7 +49,7 @@ TCHAR Domain[256];
 	);
 
 	if (rc != NERR_Success) {
-		_tprintf(_T("NetUserAdd FAIL %d 0x%08x\r\n"), rc, rc);
+		wprintf(_T("NetUserAdd FAIL %d 0x%08x\r\n"), rc, rc);
 		return rc;
 	}
 
@@ -70,7 +70,7 @@ TCHAR Domain[256];
 
 	if (!b) {
 		dw = GetLastError();
-		_tprintf(_T("LookupAccountName FAIL %d 0x%08x\r\n"), dw, dw);
+		wprintf(_T("LookupAccountName FAIL %d 0x%08x\r\n"), dw, dw);
 		return dw;
 	}
 
@@ -92,7 +92,7 @@ TCHAR Domain[256];
 	);
 
 	if (rc != NERR_Success) {
-		_tprintf(_T("NetLocalGroupAddMembers FAIL %d 0x%08x\r\n"), rc, rc);
+		wprintf(_T("NetLocalGroupAddMembers FAIL %d 0x%08x\r\n"), rc, rc);
 		return rc;
 	}
 

@@ -11,6 +11,13 @@ This standalone piece code can run in many contexts:
 - As a DLL, through `rundll32.exe adduser.dll,CreateAdminUser@16`. This is useful to bypass mandatory code signing applied to EXE files only.
 
 ## Compiling
+
+### Using zig cc (untested on Linux)
+
+```
+zig cc adduser.c -lnetapi32 -o adduser.exe
+```
+
 ### Using MinGW (tested on macOS, but Linux should work)
 
 - Create a 32-bit EXE file:
@@ -28,3 +35,8 @@ This standalone piece code can run in many contexts:
 `cl.exe adduser.c /link /DEFAULTLIB:ADVAPI32 /DEFAULTLIB:NETAPI32`
 - Create a DLL file:
 `cl.exe adduser.c /LD /link /DEFAULTLIB:ADVAPI32 /DEFAULTLIB:NETAPI32`
+
+### Ressources
+https://learn.microsoft.com/en-us/windows/win32/netmgmt/creating-a-local-group-and-adding-a-user
+https://www.windows-commandline.com/add-user-from-command-line/
+https://superuser.com/questions/1560866/how-to-initialize-new-user-account-from-command-line-on-windows
